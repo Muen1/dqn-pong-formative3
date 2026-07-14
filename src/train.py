@@ -8,6 +8,7 @@ from stable_baselines3.common.vec_env import VecFrameStack
 from stable_baselines3.common.callbacks import BaseCallback
 import csv
 import os
+from stable_baselines3.common.callbacks import BaseCallback, CheckpointCallback
 
 gym.register_envs(ale_py)
 
@@ -66,6 +67,12 @@ def main():
         learning_starts=10_000,
         tensorboard_log="./tb_logs/",
         verbose=1,
+    )
+    
+    checkpoint_callback = CheckpointCallback(
+        save_freq=10_000,
+        save_path=f"./models/checkpoints/{args.run_name}/",
+        name_prefix=args.run_name,
     )
 
     model.learn(
