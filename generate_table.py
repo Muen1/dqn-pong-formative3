@@ -1,0 +1,25 @@
+import csv
+import os
+
+rows = [
+    ["expA_1", 0.001, 0.99, "No learning observed; reward stayed near -20.9 throughout, consistent with lr being too high for stable early Q-updates given limited timesteps"],
+    ["expA_2", 0.0005, 0.99, "Reward stayed flat around -20.9; no meaningful improvement within 150k timesteps"],
+    ["expA_3", 0.0001, 0.99, "Reward stayed near -20.9; default-like config, still within the random-play range at this timestep budget"],
+    ["expA_4", 0.00005, 0.99, "Reward stayed around -20.5, marginally less negative than higher-lr runs but not a meaningful difference"],
+    ["expA_5", 0.00001, 0.99, "Reward stayed near -20.8; lr likely too low to drive any updates within 150k steps"],
+    ["expA_6", 0.0001, 0.999, "Reward stayed near -20.9; higher gamma showed no measurable effect at this timestep budget"],
+    ["expA_7", 0.0001, 0.95, "Reward stayed near -20.8; lower gamma did not noticeably change short-term behavior"],
+    ["expA_8", 0.0001, 0.90, "Reward stayed near -20.9; no clear effect from further lowering gamma"],
+    ["expA_9", 0.0005, 0.95, "Reward stayed near -20.9; combining higher lr with lower gamma still showed no learning signal"],
+    ["expA_10", 0.001, 0.95, "Reward stayed near -20.9; same divergence-free but non-learning pattern as expA_1"],
+]
+
+os.makedirs("experiments", exist_ok=True)
+
+with open("experiments/lr_gamma_experiments.csv", "w", newline="") as f:
+    writer = csv.writer(f)
+    writer.writerow(["run_name", "lr", "gamma", "noted_behavior"])
+    writer.writerows(rows)
+
+print("Table saved to experiments/lr_gamma_experiments.csv")
+
