@@ -25,7 +25,6 @@ dqn-pong-formative3/
 ├── models/
 ├──submission
    ├──Team Task Sheet      # Team contributions
-   ├── report              # Report
 ├──.gitignore 
 ├── requirements.txt
 └── README.md
@@ -85,7 +84,7 @@ Each member ran 10 independent experiments, holding some hyperparameters fixed t
 | expB_8 (slow epsilon decay) | 0.0001 | 0.99 | 32 | 1.0 | 0.05 | 0.3 | Modest improvement, comparable to fast decay; Pong tolerant of a range of decay schedules |
 | expB_9 (low epsilon start) | 0.0001 | 0.99 | 32 | 0.5 | 0.05 | 0.1 | Stayed flat near -20.8; starting with less exploration hurt early learning |
 | expB_10 (large batch + fast decay) | 0.0001 | 0.99 | 64 | 1.0 | 0.02 | 0.05 | Reached -15.6, confirming batch size as the dominant factor even combined with decay changes |
-| C01 (baseline) | 0.0001 | 0.99 | 32 | 1.0 | 0.05 | 0.1 | Reward stayed near -21.0 (std 0.0); flat baseline at 50k timesteps |
+| C01 (baseline) | 0.0001 | 0.99 | 32 | 1.0 | 0.05 | 0.1 | Baseline config, trained 200k timesteps (script default; other C runs except C07 used 50k). Even with the longer budget the greedy policy stayed near -21.0 — evidence that Pong needs far more training before configs separate |
 | C02 (fast decay) | 0.0001 | 0.99 | 32 | 1.0 | 0.05 | 0.02 | Reward stayed near -21.0 (std 0.0); no measurable effect at this short budget |
 | C03 (slow decay) | 0.0001 | 0.99 | 32 | 1.0 | 0.05 | 0.5 | Reward stayed near -21.0 (std 0.0); no measurable effect at this short budget |
 | C04 (high final epsilon) | 0.0001 | 0.99 | 32 | 1.0 | 0.20 | 0.3 | Reward -20.4, slightly better than pure baseline but not significant |
