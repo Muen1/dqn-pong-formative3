@@ -3,9 +3,9 @@
 A Deep Q-Network (DQN) agent trained with Stable Baselines3 and Gymnasium to play Atari Pong, including a full hyperparameter tuning study across three team members (30 experiments total).
 
 ## Team
-- Cynthia Mutie — Training pipeline, MLP vs CNN comparison, lr/gamma sweep
-- Henriette Utatsineza — Evaluation pipeline, gameplay video, batch size/epsilon sweep
-- Patricia Mugabo — Documentation, submission logistics, combined-config sweep, final model
+- Cynthia Mutie — Training pipeline, MLP vs CNN comparison, lr/gamma sweep (Member A)
+- Henriette Utatsineza — Evaluation pipeline, gameplay video, batch size/epsilon sweep (Member B)
+- Patricia Mugabo — Documentation, submission logistics, combined-config sweep, final model (Member C)
 
 See [Team Task Sheet](https://github.com/Muen1/dqn-pong-formative3/blob/main/submission/Team%20Task%20Sheet_%5BDeep%20Q%20Learning_Formative%203_C1%23_Group%209%23%5D.pdf) for a full breakdown of individual contributions.
 
@@ -97,8 +97,8 @@ Each member ran 10 independent experiments, holding some hyperparameters fixed t
 
 ## Key Findings
 
-1. **Batch size was the single most impactful hyperparameter** across all 30 experiments. Increasing batch size from 32 to 128 (Member B, 500k timesteps) improved mean reward from ~-20.9 to **-12.1**, the best result the group achieved.
-2. **Training duration matters as much as hyperparameter choice.** The two clearest learning signals in the group — Member B's 500k-timestep batch experiments and Member C's C07 (200k timesteps) — were also the longest-trained runs, while 50k–150k-timestep runs stayed flat near -21 regardless of configuration. Pong requires substantial training time before hyperparameter differences become visible.
+1. **Batch size was the single most impactful hyperparameter** across all 30 experiments. Increasing batch size from 32 to 128 (Henriette, 500k timesteps) improved mean reward from ~-20.9 to **-12.1**, the best result the group achieved.
+2. **Training duration matters as much as hyperparameter choice.** The two clearest learning signals in the group — Henriette's 500k-timestep batch experiments and Patricia's C07 (200k timesteps) — were also the longest-trained runs, while 50k–150k-timestep runs stayed flat near -21 regardless of configuration. Pong requires substantial training time before hyperparameter differences become visible.
 3. **Learning rate and gamma had minimal standalone effect** within the timestep budgets tested; extreme values (very high or very low lr) showed no divergence but also no learning.
 4. **Epsilon schedule had a moderate effect**, primarily through the exploration floor: too-high a floor (0.2) or too little initial exploration (start=0.5) consistently hurt performance, while a low floor (0.01) modestly helped.
 5. **Best overall configuration:** `batch_size=128, lr=0.0001, gamma=0.99, eps_start=1.0, eps_end=0.05, eps_decay_frac=0.1`, trained for 500,000 timesteps (Henriette Utatsineza, expB_4).
