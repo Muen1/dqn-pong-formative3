@@ -1,4 +1,4 @@
-# DQN Pong — Deep Q-Learning Agent (Formative 3)
+# DQN Pong - Deep Q-Learning Agent (Formative 3 Group 9)
 
 A Deep Q-Network (DQN) agent trained with Stable Baselines3 and Gymnasium to play Atari Pong, including a full hyperparameter tuning study across three team members (30 experiments total).
 
@@ -7,12 +7,14 @@ A Deep Q-Network (DQN) agent trained with Stable Baselines3 and Gymnasium to pla
 - Henriette Utatsineza — Evaluation pipeline, gameplay video, batch size/epsilon sweep
 - Patricia Mugabo — Documentation, submission logistics, combined-config sweep, final model
 
-See [CONTRIBUTIONS.md](./CONTRIBUTIONS.md) for a full breakdown of individual contributions.
+See [Team Task Sheet](https://github.com/Muen1/dqn-pong-formative3/blob/main/submission/Team%20Task%20Sheet_%5BDeep%20Q%20Learning_Formative%203_C1%23_Group%209%23%5D.pdf) for a full breakdown of individual contributions.
 
 ## Environment
 **Game:** Pong (`PongNoFrameskip-v4`, Gymnasium/ALE)
 
 ## Project Structure
+
+```
 dqn-pong-formative3/
 ├── src/
 │   ├── train.py          # Training script (DQN, CLI-configurable hyperparameters)
@@ -27,6 +29,7 @@ dqn-pong-formative3/
 ├──.gitignore 
 ├── requirements.txt
 └── README.md
+```
 
 ## Setup
 
@@ -107,7 +110,6 @@ The final `models/dqn_model.zip` was trained using the best combined configurati
 
 ## Gameplay Demonstration
 
-[Embed or link the gameplay video here, e.g.:]
 ```markdown
 ![Pong agent gameplay](link-to-video-or-gif)
 ```
