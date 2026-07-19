@@ -104,9 +104,6 @@ Each member ran 10 independent experiments, holding some hyperparameters fixed t
 4. **Epsilon schedule had a moderate effect**, primarily through the exploration floor: too-high a floor (0.2) or too little initial exploration (start=0.5) consistently hurt performance, while a low floor (0.01) modestly helped.
 5. **Best overall configuration:** `batch_size=128, lr=0.0001, gamma=0.99, eps_start=1.0, eps_end=0.05, eps_decay_frac=0.1`, trained for 500,000 timesteps (Henriette Utatsineza, expB_4).
 
-## Final Model
-
-The final `models/dqn_model.zip` was trained using the best combined configuration identified above. [Member C/whoever ran the final training: fill in final training timesteps and final evaluation reward here.]
 
 ## Gameplay Demonstration
 
