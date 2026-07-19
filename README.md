@@ -91,7 +91,7 @@ Each member ran 10 independent experiments, holding some hyperparameters fixed t
 | C04 (high final epsilon) | 0.0001 | 0.99 | 32 | 1.0 | 0.20 | 0.3 | Reward -20.4, slightly better than pure baseline but not significant |
 | C05 (low start epsilon) | 0.0001 | 0.99 | 32 | 0.5 | 0.05 | 0.1 | Reward stayed near -20.8; reduced early exploration did not help at this budget |
 | C06 (high lr, low gamma) | 0.0005 | 0.95 | 32 | 1.0 | 0.05 | 0.1 | Reward stayed near -20.8; combination showed no clear benefit |
-| C07 (low lr, high gamma) | 5e-05 | 0.995 | 64 | 1.0 | 0.05 | 0.2 | Best of Member C's runs at -20.4, with the highest training reward variance (std 0.8), suggesting a small learning signal beginning to emerge |
+| C07 (low lr, high gamma) | 5e-05 | 0.995 | 64 | 1.0 | 0.05 | 0.2 | Best of Member C's runs (trained 200k timesteps vs 50k for the others): best training reward -16, and evaluation episodes lasted nearly twice as long as any other C model (~5700 steps vs ~3100) — the agent visibly learned to return the ball and sustain rallies. Low lr + far-sighted gamma suits Pong's delayed rewards, though the result is partly explained by the longer training budget  |
 | C08 (aggressive edge case) | 0.001 | 0.999 | 32 | 1.0 | 0.01 | 0.05 | Reward stayed near -21.0 (std 0.0); aggressive combined settings gave no benefit at this budget |
 | C09 (large batch) | 0.0001 | 0.99 | 128 | 1.0 | 0.05 | 0.2 | Reward stayed near -21.0 (std 0.0); unlike Member B's larger-batch runs, this did not show improvement, likely due to the much shorter 50k-timestep budget |
 | C10 (small batch) | 0.00025 | 0.97 | 16 | 1.0 | 0.10 | 0.3 | Reward stayed near -20.6; no clear improvement |
@@ -99,7 +99,7 @@ Each member ran 10 independent experiments, holding some hyperparameters fixed t
 ## Key Findings
 
 1. **Batch size was the single most impactful hyperparameter** across all 30 experiments. Increasing batch size from 32 to 128 (Member B, 500k timesteps) improved mean reward from ~-20.9 to **-12.1**, the best result the group achieved.
-2. **Training duration matters as much as hyperparameter choice.** Member A's and Member C's shorter runs (150k and 50k timesteps) stayed flat near -21 regardless of configuration, while Member B's longer 500k-timestep runs showed real learning — indicating Pong requires substantial training time before hyperparameter differences become visible.
+2. **Training duration matters as much as hyperparameter choice.** The two clearest learning signals in the group — Member B's 500k-timestep batch experiments and Member C's C07 (200k timesteps) — were also the longest-trained runs, while 50k–150k-timestep runs stayed flat near -21 regardless of configuration. Pong requires substantial training time before hyperparameter differences become visible.
 3. **Learning rate and gamma had minimal standalone effect** within the timestep budgets tested; extreme values (very high or very low lr) showed no divergence but also no learning.
 4. **Epsilon schedule had a moderate effect**, primarily through the exploration floor: too-high a floor (0.2) or too little initial exploration (start=0.5) consistently hurt performance, while a low floor (0.01) modestly helped.
 5. **Best overall configuration:** `batch_size=128, lr=0.0001, gamma=0.99, eps_start=1.0, eps_end=0.05, eps_decay_frac=0.1`, trained for 500,000 timesteps (Henriette Utatsineza, expB_4).
