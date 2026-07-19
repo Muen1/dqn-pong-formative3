@@ -13,19 +13,19 @@ from stable_baselines3.common.vec_env import VecFrameStack
 
 ENV_ID = "PongNoFrameskip-v4"
 EVAL_EPISODES = 5
-OUTPUT = Path("experiments/member_c_results.csv")
+OUTPUT = Path("experiments/exp_c_results.csv")
 
 EXPERIMENTS = [
-    ("member_c_01_baseline", 0.0001, 0.99, 32, 1.00, 0.05, 0.10),
-    ("member_c_02_fast_decay", 0.0001, 0.99, 32, 1.00, 0.05, 0.02),
-    ("member_c_03_slow_decay", 0.0001, 0.99, 32, 1.00, 0.05, 0.50),
-    ("member_c_04_high_final_epsilon", 0.0001, 0.99, 32, 1.00, 0.20, 0.30),
-    ("member_c_05_low_start_epsilon", 0.0001, 0.99, 32, 0.50, 0.05, 0.10),
-    ("member_c_06_high_lr_low_gamma", 0.0005, 0.95, 32, 1.00, 0.05, 0.10),
-    ("member_c_07_low_lr_high_gamma", 0.00005, 0.995, 64, 1.00, 0.05, 0.20),
-    ("member_c_08_aggressive_edge", 0.001, 0.999, 32, 1.00, 0.01, 0.05),
-    ("member_c_09_large_batch", 0.0001, 0.99, 128, 1.00, 0.05, 0.20),
-    ("member_c_10_small_batch", 0.00025, 0.97, 16, 1.00, 0.10, 0.30),
+    ("exp_c_01_baseline", 0.0001, 0.99, 32, 1.00, 0.05, 0.10),
+    ("exp_c_02_fast_decay", 0.0001, 0.99, 32, 1.00, 0.05, 0.02),
+    ("exp_c_03_slow_decay", 0.0001, 0.99, 32, 1.00, 0.05, 0.50),
+    ("exp_c_04_high_final_epsilon", 0.0001, 0.99, 32, 1.00, 0.20, 0.30),
+    ("exp_c_05_low_start_epsilon", 0.0001, 0.99, 32, 0.50, 0.05, 0.10),
+    ("exp_c_06_high_lr_low_gamma", 0.0005, 0.95, 32, 1.00, 0.05, 0.10),
+    ("exp_c_07_low_lr_high_gamma", 0.00005, 0.995, 64, 1.00, 0.05, 0.20),
+    ("exp_c_08_aggressive_edge", 0.001, 0.999, 32, 1.00, 0.01, 0.05),
+    ("exp_c_09_large_batch", 0.0001, 0.99, 128, 1.00, 0.05, 0.20),
+    ("exp_c_10_small_batch", 0.00025, 0.97, 16, 1.00, 0.10, 0.30),
 ]
 
 
@@ -89,7 +89,7 @@ def main():
                 model,
                 env,
                 n_eval_episodes=EVAL_EPISODES,
-                deterministic=True,
+                deterministic=False,
                 return_episode_rewards=True,
                 warn=False,
             )
