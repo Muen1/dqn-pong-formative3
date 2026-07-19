@@ -21,9 +21,12 @@ dqn-pong-formative3/
 ├── experiments/            # Per-member and combined hyperparameter tables
 ├── logs/                   # Per-episode reward/length logs (CSV)
 ├── models/
-│   └── dqn_model.zip       # Final trained model used by play.py
+├──submission
+   ├──Team Task Sheet      # Team contributions
+   ├── report              # Report
+├──.gitignore 
 ├── requirements.txt
-└── CONTRIBUTIONS.md
+└── README.md
 
 ## Setup
 
