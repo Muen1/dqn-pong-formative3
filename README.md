@@ -84,13 +84,13 @@ Each member ran 10 independent experiments, holding some hyperparameters fixed t
 | expB_8 (slow epsilon decay) | 0.0001 | 0.99 | 32 | 1.0 | 0.05 | 0.3 | Solid improvement to -16.0, comparable direction to fast decay; Pong tolerant of a range of decay schedules |
 | expB_9 (low epsilon start) | 0.0001 | 0.99 | 32 | 0.5 | 0.05 | 0.1 | Stayed flat near -20.85; starting with less exploration hurt early learning |
 | expB_10 (large batch + fast decay) | 0.0001 | 0.99 | 64 | 1.0 | 0.02 | 0.05 | Reached -14.4 mean reward; also recorded an outright win, with a best single-episode result of +2 (roughly 21–19) — a second, independent confirmation that batch_size=64 configurations were capable of beating the opponent |
-| C01 (baseline) | 0.0001 | 0.99 | 32 | 1.0 | 0.05 | 0.1 | Baseline config, trained 50k timesteps. Reward stayed near -21.0 (std 0.0) — evidence that Pong needs far more training before configs separate |
+| C01 (baseline) | 0.0001 | 0.99 | 32 | 1.0 | 0.05 | 0.1 | Baseline config, trained 200k timesteps. Reward stayed near -21.0 (std 0.0) — evidence that Pong needs far more training before configs separate |
 | C02 (fast decay) | 0.0001 | 0.99 | 32 | 1.0 | 0.05 | 0.02 | Reward stayed near -21.0 (std 0.0); no measurable effect at this short budget |
 | C03 (slow decay) | 0.0001 | 0.99 | 32 | 1.0 | 0.05 | 0.5 | Reward stayed near -21.0 (std 0.0); no measurable effect at this short budget |
 | C04 (high final epsilon) | 0.0001 | 0.99 | 32 | 1.0 | 0.20 | 0.3 | Reward -20.4, slightly better than pure baseline but not significant |
 | C05 (low start epsilon) | 0.0001 | 0.99 | 32 | 0.5 | 0.05 | 0.1 | Reward stayed near -20.8; reduced early exploration did not help at this budget |
 | C06 (high lr, low gamma) | 0.0005 | 0.95 | 32 | 1.0 | 0.05 | 0.1 | Reward stayed near -20.8; combination showed no clear benefit |
-| C07 (low lr, high gamma) | 5e-05 | 0.995 | 64 | 1.0 | 0.05 | 0.2 | Best of Member C's runs: best training reward -16, and evaluation episodes lasted nearly twice as long as any other C model (~5727 steps vs ~3056) — the agent visibly learned to return the ball and sustain rallies, despite the same 50k-timestep budget as the other C runs. Low lr + far-sighted gamma appears to suit Pong's delayed rewards |
+| C07 (low lr, high gamma) | 5e-05 | 0.995 | 64 | 1.0 | 0.05 | 0.2 | Best of Member C's runs: best training reward -16, and evaluation episodes lasted nearly twice as long as any other C model (~5727 steps vs ~3056). the agent visibly learned to return the ball and sustain rallies, despite the same 200k-timestep budget as the other C runs. Low lr + far-sighted gamma appears to suit Pong's delayed rewards |
 | C08 (aggressive edge case) | 0.001 | 0.999 | 32 | 1.0 | 0.01 | 0.05 | Reward stayed near -21.0 (std 0.0); aggressive combined settings gave no benefit at this budget |
 | C09 (large batch) | 0.0001 | 0.99 | 128 | 1.0 | 0.05 | 0.2 | Reward stayed near -21.0 (std 0.0); unlike Member B's larger-batch runs, this did not show improvement, likely due to the much shorter 50k-timestep budget |
 | C10 (small batch) | 0.00025 | 0.97 | 16 | 1.0 | 0.10 | 0.3 | Reward -20.6; no clear improvement |
