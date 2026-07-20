@@ -1,0 +1,11 @@
+name,batch_size,eps_start,eps_end,eps_decay_frac,note,total_episodes,first10_mean_reward,last20_mean_reward,best_single_episode,improvement
+expB_3,64,1.0,0.05,0.1,large batch,334,-20.4,-7.75,8.0,12.65
+expB_7,32,1.0,0.05,0.02,fast decay,478,-20.4,-12.45,-5.0,7.95
+expB_10,64,1.0,0.02,0.05,combo: large batch + aggressive decay,330,-20.4,-14.4,2.0,6.0
+expB_8,32,1.0,0.05,0.3,slow decay,393,-20.4,-16.0,-5.0,4.4
+expB_5,32,1.0,0.01,0.1,low eps floor,565,-20.4,-18.8,-13.0,1.6
+expB_1,32,1.0,0.05,0.1,baseline,622,-20.4,-20.8,-18.0,-0.4
+expB_2,16,1.0,0.05,0.1,small batch,622,-20.4,-20.8,-18.0,-0.4
+expB_6,32,1.0,0.2,0.1,high eps floor,600,-20.4,-20.8,-18.0,-0.4
+expB_9,32,0.5,0.05,0.1,low eps start,622,-20.4,-20.85,-18.0,-0.45
+expB_4,128,1.0,0.05,0.1,xl batch,616,-20.4,-20.9,-18.0,-0.5
