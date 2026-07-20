@@ -113,6 +113,7 @@ The agent shown below plays as the right paddle against Pong's built-in (non-lea
 
 ```markdown
 [Watch the gameplay video](gameplay_videos/pong_agent-step-0-to-step-100000.mp4)
+or 
 ```
-
+[Watch the gameplay video on youtube](https://youtu.be/joO35d-Vyhs)
 ```
